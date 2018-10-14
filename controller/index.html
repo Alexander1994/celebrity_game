@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Controller</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <style>
+        .state {
+            display: none;
+        }
+        #startGameBtn {
+            display: none;
+        }
+        #startYourTurnBtn {
+            display: none;
+        }
+        #gameConfiguration {
+            display: none;
+        }
+
+        /* Styling */
+        .gameBtn {
+            font-size: 1em;
+            height: 72px;
+            padding: 0 45px;
+        }
+        #nextBtn {
+            float: right;
+        }
+        .state {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="start" class="state">
+            <span>Enter Game ID</span>
+            <input type="text" id="gameIDInput">
+            <button id="connectGameBtn">Connect to Game</button>
+        </div>
+
+        <div id="player_data" class="state">
+            <span>Enter your name!</span>
+            <input type="text" id="playerNameInput"><br/>
+            <span>Choose your team!</span>
+            <select name="playerTeamSelect" id="playerTeamSelect">
+                <option value="1">red</option>
+                <option value="2">blue</option>
+            </select>
+            <button id="playerDataBtn">Send</button>
+        </div>
+
+        <div id="pre_game" class="state">
+            <div id="gameConfiguration">
+                <h3>Game Configuration</h3>
+                <span>Player Turn Length (in seconds)</span> <input id="playerTurnLengthInput" value="60" type="number">
+                <button id="sendGameConfigurationBtn">Start Game!</button>
+            </div>
+        </div>
+        
+        <div id="celeb_name_phase" class="state">
+            <h3>Enter Celebrity Names!</h3>
+            <input type="text" id="celebNameInput">
+            <button id="sendCelebBtn">Send</button>
+            <hr>
+            <button id="startGameBtn">Start the Game!</button>
+        </div>
+        
+        <div id="pre_game_start" class="state">
+            <h3 id="preGameLoading">Loading...</h3>
+            <p id="countDownTimer"></p>
+        </div>
+
+        <div id ="waiting_phase" class="state">
+            <p>waiting phase</p>
+            <button id="startYourTurnBtn">Start your turn!</button>
+        </div>
+
+        <div id="game_phase" class="state">
+            <p>Game Phase</p>
+            <hr>
+            <p id="currCeleb"></p>
+            <hr>
+            <button class="gameBtn" id="skipBtn">Skip</button>
+            <button class="gameBtn" id="nextBtn">Next</button>
+        </div>
+
+        <div id="score_phase" class="state">
+            <p id="guessed"></p>
+            <p id="skipped"></p>
+            <hr>
+            <p id="totalScore"></p>
+        </div>
+    </div>
+
+    <script src="dist/bundle.min.js"></script>
+</body>
+</html>
