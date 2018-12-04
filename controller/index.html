@@ -37,6 +37,15 @@
         .state {
             font-size: 2em;
         }
+
+        /* debug */
+        #debug > * {
+            border-bottom:0.5px solid grey
+        }
+        #debug {
+            height: 200px;
+            overflow-y: scroll;
+        }
     </style>
 </head>
 <body>
@@ -105,6 +114,7 @@
             <button class="startYourTurnBtn">Start your turn!</button>
         </div>
     </div>
+    <div id="debug"></div>
     <script src="dist/bundle.min.js"></script>
 </body>
 </html>
