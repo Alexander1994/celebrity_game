@@ -39,6 +39,9 @@
         }
 
         /* debug */
+        #debug {
+            display: none;
+        }
         #debug > * {
             border-bottom:0.5px solid grey
         }
@@ -46,6 +49,38 @@
             height: 200px;
             overflow-y: scroll;
         }
+
+
+    /* loading dots */
+
+    .loading:after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;}
+
+    @keyframes dots {
+        0%, 20% {
+            color: rgba(0,0,0,0);
+            text-shadow:
+                .25em 0 0 rgba(0,0,0,0),
+                .5em 0 0 rgba(0,0,0,0);
+            }
+        40% {
+            color: black;
+            text-shadow:
+                .25em 0 0 rgba(0,0,0,0),
+                .5em 0 0 rgba(0,0,0,0);
+            }
+        60% {
+            text-shadow:
+                .25em 0 0 black,
+                .5em 0 0 rgba(0,0,0,0);
+            }
+        80%, 100% {
+                text-shadow:
+                .25em 0 0 black,
+                .5em 0 0 black;
+            }
+    }
     </style>
 </head>
 <body>
@@ -72,8 +107,17 @@
             <h4 id="preGameWelcome"></h4>
             <div id="gameConfiguration">
                 <h3>Game Configuration</h3>
+                <!-- <p>Don't forget to ask the players how long they would like each turn!</p> -->
+                <span>Lose a point on a skip?</span> <input type="checkbox" name="losePointOnSkipCheckBox" id="losePointOnSkipCheckBox"> <span>(Yes or No)</span> <br>
                 <span>Player Turn Length (in seconds)</span> <input id="playerTurnLengthInput" value="60" type="number">
                 <button id="sendGameConfigurationBtn">Start Game!</button>
+            </div>
+            <div>
+                <p>Here's some tips while your waiting!</p>
+                <hr>
+                <p>Durting you're turn</p>
+                <p>During you're turn the next button gets the next celebrity and gives your team 1 point</p>
+                <p>The skip button skips the current celebrity and you don't get a point or you lose a point.</p>
             </div>
         </div>
         
@@ -86,7 +130,7 @@
         </div>
         
         <div id="pre_game_start" class="state">
-            <h3 id="preGameLoading">Loading...</h3>
+            <h3 id="preGameLoading" class="loading">Loading</h3>
             <p id="countDownTimer"></p>
         </div>
 
@@ -106,6 +150,10 @@
         </div>
 
         <div id="score_phase" class="state">
+            <div id="outOfPlayerDisplay">
+                <h3>Round over! Those were the last celebrities for the round.</h3>
+                <hr>
+            </div>
             <h3>Score phase</h3>
             <p id="guessed"></p>
             <p id="skipped"></p>
