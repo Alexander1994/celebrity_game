@@ -81,9 +81,19 @@
                 .5em 0 0 black;
             }
     }
+
+    /* disconnectDisplay */
+    #disconnectDisplay {
+        background-color: crimson;
+        color: white;
+        display: none;
+    }
     </style>
 </head>
 <body>
+    <div id="disconnectDisplay">
+        <p>You are temporarily disconnected from the server. Sorry for the inconvience! :(</p>
+    </div>
     <div id="main">
         <div id="start" class="state">
             <span>Enter Game ID</span>
@@ -113,11 +123,11 @@
                 <button id="sendGameConfigurationBtn">Start Game!</button>
             </div>
             <div>
-                <p>Here's some tips while your waiting!</p>
                 <hr>
-                <p>Durting you're turn</p>
-                <p>During you're turn the next button gets the next celebrity and gives your team 1 point</p>
-                <p>The skip button skips the current celebrity and you don't get a point or you lose a point.</p>
+                <p>Here's some tips while your waiting!</p>
+                <p>Durting you're turn...</p>
+                <p>The next button gets the next celebrity and gives your team 1 point</p>
+                <p>And the skip button skips the current celebrity and you don't get a point or you lose a point (depending on the setting selected by the main player).</p>
             </div>
         </div>
         
